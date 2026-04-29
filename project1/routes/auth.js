@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
-router.get('/', (req, res) => {
-    res.send('Auth route working');
+router.post('/register', (req,res) => {
+    const { fio, email, password } = req.body;   
+    if (!fio || !email || !password)  {
+       return res.send('Заполните все поля'); 
+    }
+    res.send('Регистрация завершена')
 });
 module.exports = router;
